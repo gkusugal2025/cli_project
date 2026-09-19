@@ -35,13 +35,13 @@ def read_document(
 
 def edit_document(
     doc_id:str = Field(description="Id of the document that will be edited"),
-    old_str:str = Field{description="The text to replace. Must match exactly, including whitespace"},
-    new_str: str = Field{descriptin="The new text to insert in place of the old one, icluding whitespace"}
+    old_str:str = Field(description="The text to replace. Must match exactly, including whitespace"),
+    new_str: str = Field(description="The new text to insert in place of the old one, including whitespace"),
 ):
     if doc_id not in docs:
- raise ValueError(f"Doc with id {doc_id} not found")
+        raise ValueError(f"Doc with id {doc_id} not found")
 
-docs[doc_id] = docs[doc_id].replace(old_str, new_str)
+    docs[doc_id] = docs[doc_id].replace(old_str, new_str)
 
 
 # TODO: Write a resource to return all doc id's
